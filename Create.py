@@ -4,6 +4,34 @@ import numpy as np
 # reading the data from the preprocessed .csv file
 df = pd.read_csv('df.csv')
 
+def Correction(item):
+    lst = str(item).split()
+    if lst[-1] in ['the', 'a', 'an']:
+        last_item = lst.pop()
+        new_item = last_item + " " + " ".join(lst)
+        new = new_item[:-1]
+        return(new)
+        
+    else:
+        return(item)
+ 
+
+df["title"].apply(Correction)
+
+
+title_lst = []
+for i in list(df['title']):
+    item = Correction(i)
+    title_lst.append(item)
+
+#Create new dataframe 
+updated_data = pd.DataFrame({'col':title_lst})    
+    
+
+df['title'] = updated_data['col'] 
+
+df.to_csv('Updated_df')
+
 user_ratings = df.pivot_table(index = 'user_id', columns = 'title', values = 'rating')
 user_ratings.head()
 
