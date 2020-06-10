@@ -1,0 +1,49 @@
+{% extends "layouts.html" %}
+{% block title %}
+Login Page
+{% endblock %}
+
+{% block body %}
+<form action="{{ url_for('login_results') }}" method="post">
+
+	<div class="form-group">
+
+		<style>
+			body{
+				background-color: #A9A9A9;
+        		font-family: Arial,Helvetica,Sans-sreif;
+        		background-image: url(https://png.pngtree.com/thumb_back/fw800/background/20190222/ourmid/pngtree-city-high-rise-building-lake-water-pink-cartoon-background-buildingbuildinglake-waterpinkcartoonbackground-image_60246.jpg);
+        		position: fixed;
+        		background-blend-mode: overlay;
+			}
+
+			button{
+				margin-top: 50px;
+				margin-left: 50px;
+				background-color: #CD5C5C;
+				font-size: 120%;
+				color: white;
+			}
+
+			div.Username{
+				margin: 50px;
+			}
+			div.pwd{
+				margin: 50px;
+			}
+
+		</style>
+		<div class = "Username">
+		    <label for="uname"><b>Username</b></label>
+		    <input type="text" placeholder="Enter Username" name="Name" required>
+		</div>
+
+		<div class = "pwd">
+		    <label for="psw"><b>Password</b></label>
+		    <input type="password" placeholder="Enter Password" name="Password" required>
+		</div>
+
+	    <div> <button type="submit">Login</button> </div>   
+	</div>  
+</form>
+{% endblock %}

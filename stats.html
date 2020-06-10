@@ -1,0 +1,22 @@
+{% extends "layouts.html" %}
+{% block title %}
+Login Page
+{% endblock %}
+
+{% block body %}
+<h1>Showing stats for {{ message }}</h1>
+<h4>{{ pos }}% liked this movie</h4>
+<h4>{{ neg }}% disliked this movie</h4>
+<h4>Avg ratings = {{ sum }}</h4>
+<section> 
+	<ul>
+	{% for i in name %}
+	<li>
+	 <div class="font-weight-bold">{{ i[1] }}</div>
+	 <span>{{ i[0] }}</span>
+	</li>
+	{% endfor %}
+	</ul>
+</section>
+
+{% endblock %}
